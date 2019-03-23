@@ -2,7 +2,7 @@
   <article class="favorite-wrapper">
     <pageTitle title="Favorite" />
     <div class="favorite-content" v-for="(favorite, index) in favorites" :key="index">
-      <img class="favimg" :src="favorite.image" width="400" height="250" />
+      <a href="#"><img class="favimg" :src="favorite.image" width="400" height="250" /></a>
       <h3>{{ favorite.favtitle }}</h3>
       <p>{{ favorite.describe }}</p>
     </div>
@@ -42,7 +42,7 @@ export default {
         },
         {
           image: Bedjwford,
-          favorite: "Fassion",
+          favtitle: "Fassion",
           describe: "服が好きなので良く服好きな友達と街に行って、ショッピングしてます。画像は僕が最近好きなブランドです。"
         },
         {
@@ -80,6 +80,11 @@ export default {
   box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
   border-radius: 25px;  /* 角丸半径を50%にする(=円形にする) */
   margin-top: 15px; 
+  transition: all 0.5s cubic-bezier(.48,.01,.45,1.9);
+}
+a:hover .favimg {
+  box-shadow: 0px 3px 10px 3px rgba(0,0,0,0.4);
+  transform: scale(1.2) rotate(8deg);
 }
 h3 {
   width: 400px;
